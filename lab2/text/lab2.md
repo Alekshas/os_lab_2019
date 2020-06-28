@@ -13,7 +13,6 @@
 lenovo@15ikb:~/Документы/OS labs/lab2/src/swap$ gcc -o Prog main.c swap.c
 lenovo@15ikb:~/Документы/OS labs/lab2/src/swap$ ./Prog
 b a
-
 ```
 ### Ресурсы
 
@@ -96,7 +95,7 @@ lenovo@15ikb:~/Документы/OS labs/lab2/RevertString$ gcc -c -fPIC src/re
 Создаем архив для статистической библиотеки
 `lenovo@15ikb:~/Документы/OS labs/lab2/RevertString$ ar rcs bin/static/revert_string.a bin/static/revert_string.o `
 
-Создаем статистическую библиотеку
+Компануем статистическую библиотеку
 `lenovo@15ikb:~/Документы/OS labs/lab2/RevertString$ gcc bin/main.o -Lbin/static -lrevert -o bin/statically-linked
 `
 Теперь созданная нами программа не библиотеконезависима)
