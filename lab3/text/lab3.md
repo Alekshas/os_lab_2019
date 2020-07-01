@@ -6,10 +6,16 @@
 
 1. Аргументы командной строки
 2. Сборка с помощью gcc (clang)
-
 Написать функцию GetMinMax в find\_max\_min.c, которая ищет минимальный и максимальный элементы массива, на заданном промежутке.
 Разобраться, что делает программа в sequiential\_min\_max.c, скомпилировать, проверить, что написанный вами GetMinMax работает правильно.
+```
+lenovo@15ikb:~/University/os_lab_2019/lab3/src$ gcc -o zad1 find_min_max.c sequential_min_max.c utils.c
+lenovo@15ikb:~/University/os_lab_2019/lab3/src$ ./zad1 2 4
+array: 1505335290 1738766719 190686788 260874575
+min: 190686788
+max: 1738766719
 
+```
 ### Ресурсы
 
 1. [Как компилировать простые программы с gcc (заменить сс на gcc).](https://www.classes.cs.uchicago.edu/archive/2014/winter/51081-1/LabFAQ/lab3/compile.html)
@@ -41,7 +47,14 @@
 1. Как работают Makefile'ы
 
 Изучить все targets в makefile, будьте готовы объяснить, за что они отвечают. Используя `makefile`, собрать получившиеся решения. Добавьте target `all`, отвечающий за сборку всех программ.
+```
+lenovo@15ikb:~/University/os_lab_2019-Юнус/lab3/src$ make -f makefile
+gcc -o utils.o -c utils.c -I.
+gcc -o find_min_max.o -c find_min_max.c -I.
+gcc -o sequential_min_max find_min_max.o utils.o sequential_min_max.c -I.
+gcc -o parallel_min_max utils.o find_min_max.o parallel_min_max.c -lm -I.
 
+```
 ### Ресурсы
 
 1. [Введение в Makefiles. Ссылка на мини учебник от GNU.](https://www.gnu.org/software/make/manual/html_node/Introduction.html#Introduction)
@@ -57,6 +70,14 @@
 1. [Мануал для exec](http://man7.org/linux/man-pages/man3/exec.3.html)
 2. [Небольшой пример, как комбинировать fork и exec](https://ece.uwaterloo.ca/~dwharder/icsrts/Tutorials/fork_exec/)
 
+```
+lenovo@15ikb:~/University/os_lab_2019-Юнус/lab3/src$ gcc -o qwe task5.c
+lenovo@15ikb:~/University/os_lab_2019-Юнус/lab3/src$ ./qwe 2 3
+Array: 90 19 88
+min: 19
+max: 90
+
+```
 <!--
 ## Задание 6
 
