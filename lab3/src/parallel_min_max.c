@@ -107,7 +107,7 @@ int array_part = array_size / pnum;
   int pipefd2[2];
   char min_array[24];
   char max_array[24];
-
+  
   if (!with_files) {
       if (pipe(pipefd1) == -1) {
            perror("pipe1");
@@ -144,7 +144,7 @@ int array_part = array_size / pnum;
             ///////////////////my code
           char filename[8];
             snprintf(filename, 8, "file%d", i);
-
+            
             FILE* fp;
             fp = fopen(filename, "w+");
             fprintf(fp, "%d,%d", min_max.min, min_max.max);
@@ -154,13 +154,13 @@ int array_part = array_size / pnum;
           /////////// my code
           snprintf(min_array, 24, "%d", min_max.min);
             snprintf(max_array, 24, "%d", min_max.max);
-
+        
             close(pipefd1[0]); // Close unused read end
-            close(pipefd2[0]); // Close unused read end
-
+            close(pipefd2[0]); // Close unused read end 
+            
             write(pipefd1[1], min_array, 24);
             write(pipefd2[1], max_array, 24);
-
+            
             close(pipefd1[1]); // Reader will see EOF (end of file)
             close(pipefd2[1]); // Reader will see EOF (end of file)
             ///////end
@@ -194,7 +194,7 @@ int array_part = array_size / pnum;
       //////////////my code
         char filename[8];
         snprintf(filename, 8, "file%d", i);
-
+        
         FILE* fp;
         fp = fopen(filename, "r");
         fscanf(fp, "%d,%d", &min, &max);
@@ -205,10 +205,10 @@ int array_part = array_size / pnum;
         ////////////my code
       close(pipefd1[1]);          /* Close unused write end */
       close(pipefd2[1]);          /* Close unused write end */
-
+     
       read(pipefd1[0], buffer, 24);
       min = atoi(buffer);
-
+      
       read(pipefd2[0], buffer, 24);
       max = atoi(buffer);
       /////////end
