@@ -39,6 +39,34 @@
 
 При завершении процесса система уведомляет родительский процесс о завершении дочернего с помощью сигнала SIGCHLD, таким образом может быть удобно(но не обязательно) осуществлять вызов wait() в обработчике данного сигнала.
 
+Проверка на наличие процесса.
+`top | grep zombie`
+
+Убйиство процесса
+```
+lenovo@15ikb:~$ ps -xal | grep defunct
+1  1000 18889 18888  20   0      0     0 -      Z    pts/0      0:00 [zombie] <defunct>
+0  1000 18949 18933  20   0  15648  1060 pipe_w S+   pts/2      0:00 grep --color=auto defunct
+lenovo@15ikb:~$ kil -KILL 18888
+
+Command 'kil' not found, did you mean:
+
+  command 'kile' from deb kile
+  command 'cil' from deb cil
+  command 'kill' from deb procps
+  command 'kid' from deb python-kid
+  command 'uil' from deb uil
+  command 'kig' from deb kig
+  command 'kic' from deb kic
+  command 'pil' from deb picolisp
+
+Try: sudo apt install <deb name>
+
+lenovo@15ikb:~$ kill -KILL 18888
+lenovo@15ikb:~$
+
+```
+
 https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81-%D0%B7%D0%BE%D0%BC%D0%B1%D0%B8
 
 ### Ресурсы

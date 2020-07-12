@@ -106,7 +106,7 @@ int main(int argc, char **argv) {
   }
 
   if (seed == -1 || array_size == -1 || pnum == -1) {
-    printf("Usage: %s --seed \"num\" --array_size \"num\" --pnum \"num\" \n",
+    printf("Usage: %s --seed \"num\" --array_size \"num\" --pnum \"num\" --timeout \"num\" \n",
            argv[0]);
     return 1;
   }
@@ -144,7 +144,7 @@ int main(int argc, char **argv) {
         } else {
           write(pipefd[1], &min_max_pnum, sizeof(struct MinMax));
         }
-        sleep(3);
+
         return 0;
       }
 
